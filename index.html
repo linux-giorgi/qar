@@ -21,8 +21,10 @@
         }
         .book {
             position: relative;
-            width: 400px;
-            height: 600px;
+            width: 90%;
+            max-width: 400px;
+            height: 70%;
+            max-height: 600px;
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -33,28 +35,32 @@
             align-items: center;
             text-align: center;
             overflow: hidden;
+            padding: 10px;
         }
         .book h1 {
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 10px;
+            line-height: 1.4;
         }
         .book p {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.5;
-            padding: 0 20px;
+            padding: 0 10px;
         }
         .controls {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
         button {
             background: #5cb85c;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            margin: 0 10px;
+            font-size: 14px;
             transition: background 0.3s;
         }
         button:hover {
@@ -63,6 +69,34 @@
         button:disabled {
             background: #ddd;
             cursor: not-allowed;
+        }
+        @media (max-width: 768px) {
+            .book {
+                height: auto;
+                padding: 20px;
+            }
+            .book h1 {
+                font-size: 18px;
+            }
+            .book p {
+                font-size: 14px;
+            }
+            button {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .book h1 {
+                font-size: 16px;
+            }
+            .book p {
+                font-size: 12px;
+            }
+            button {
+                font-size: 10px;
+                padding: 6px 10px;
+            }
         }
     </style>
 </head>
@@ -101,23 +135,27 @@
         const content = document.getElementById('content');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
+
         function updateBook() {
             content.textContent = pages[currentPage];
             prevBtn.disabled = currentPage === 0;
             nextBtn.disabled = currentPage === pages.length - 1;
         }
+
         prevBtn.addEventListener('click', () => {
             if (currentPage > 0) {
                 currentPage--;
                 updateBook();
             }
         });
+
         nextBtn.addEventListener('click', () => {
             if (currentPage < pages.length - 1) {
                 currentPage++;
                 updateBook();
             }
         });
+
         updateBook();
     </script>
 </body>

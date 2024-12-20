@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ქართულის კომპლექსური</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .book {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .book h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .book p {
+            font-size: 18px;
+            line-height: 1.5;
+            padding: 0 20px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        button {
+            background: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #4cae4c;
+        }
+        button:disabled {
+            background: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="book" id="book">
+            <h1 id="title">ქართულის კომპლექსური N1</h1>
+            <p id="content">ცხრა შეკითხვა სიყვარულზე</p>
+        </div>
+        <div class="controls">
+            <button id="prevBtn" disabled>წინა გვერდი</button>
+            <button id="nextBtn">შემდეგი გვერდი</button>
+        </div>
+    </div>
+
+    <script>
+        const pages = [
+            "ცხრა შეკითხვა სიყვარულზე კითხვები “სტივ ვოზნიაკისგან“ ",
+            "მე: გამარჯობათ ბატონო სტივ სულ რამოდენიმე კითხვა მექნება, მინდა გაგაფრთხილოთ რომ არცერთი კითხვა არ იქნება პროგრამირებაზე ყველა კითხვა იქნება სიყვარულზე.",
+            "სტივი: ძალიან არ მიყვარს პროგრამირების გარდა სხვა თემაზე ლაპარაკი მაგრამ დღეს ავიტან.",
+            "მე: კარგით ბატონო სტივ მინდა დავიწყო კითხვით “გჯერათ თუ არა სიყვარულის“.",
+            "სტივი: იცით ამ კითხვაზე ძალიან ბევრი მიფიქრია მაგრამ კონკრეტულ შედეგამდე არ მივსულვარ.",
+            "მე: კარგით მაშინ დავსვამ კითხვას შემდეგნაირად გყოლიათ თუ არა შეყვარებული .",
+            "სტივი: კი ბავშვობაში მყავდა შეყვარებული.",
+            "მე: და რა ერქვა?.",
+            "სტივი: მას ერქვე elisa.",
+            "მე: და ლამაზი იყო?.",
+            "სტივი: იცით მე ადამიანში სხვა თვისებას ვაფასებ.",
+            "მე: თუ შეიძლება უფრო კონკრეტულად.",
+            "მე: დიახ მე ადამიანში ვაფასებ კონკრეტულად ურთიერთ გაგებას .",
+            " მადლობთ ყურადღებისთვის."
+        ];
+
+        let currentPage = 0;
+        const title = document.getElementById('title');
+        const content = document.getElementById('content');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        function updateBook() {
+            content.textContent = pages[currentPage];
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === pages.length - 1;
+        }
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                updateBook();
+            }
+        });
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                updateBook();
+            }
+        });
+        updateBook();
+    </script>
+</body>
+</html>

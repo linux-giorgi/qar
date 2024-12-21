@@ -7,43 +7,56 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
             text-align: center;
             margin: 20px 0;
-            color: #333;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
         }
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             padding: 20px;
+            width: 90%;
             max-width: 1200px;
-            margin: 0 auto;
         }
 
         .grid-item {
-            background-color: #4CAF50;
-            color: white;
+            background: #ffffff;
+            color: #333;
             text-align: center;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .grid-item:hover {
-            background-color: #45a049;
-            transform: scale(1.05);
+            background: #2575fc;
+            color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 768px) {
             .grid-item {
                 padding: 15px;
+                font-size: 1em;
             }
         }
     </style>

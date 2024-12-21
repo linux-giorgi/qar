@@ -3,160 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ქართულის კომპლექსური</title>
+    <title>N1 კომპლექსური</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
             background-color: #f4f4f9;
         }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .book {
-            position: relative;
-            width: 90%;
-            max-width: 400px;
-            height: 70%;
-            max-height: 600px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+
+        h1 {
             text-align: center;
-            overflow: hidden;
-            padding: 10px;
+            margin: 20px 0;
+            color: #333;
         }
-        .book h1 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            line-height: 1.4;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .book p {
-            font-size: 16px;
-            line-height: 1.5;
-            padding: 0 10px;
-        }
-        .controls {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        button {
-            background: #5cb85c;
+
+        .grid-item {
+            background-color: #4CAF50;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
+            transition: transform 0.2s, background-color 0.3s;
         }
-        button:hover {
-            background: #4cae4c;
+
+        .grid-item:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
         }
-        button:disabled {
-            background: #ddd;
-            cursor: not-allowed;
-        }
+
         @media (max-width: 768px) {
-            .book {
-                height: auto;
-                padding: 20px;
-            }
-            .book h1 {
-                font-size: 18px;
-            }
-            .book p {
-                font-size: 14px;
-            }
-            button {
-                font-size: 12px;
-                padding: 8px 12px;
-            }
-        }
-        @media (max-width: 480px) {
-            .book h1 {
-                font-size: 16px;
-            }
-            .book p {
-                font-size: 12px;
-            }
-            button {
-                font-size: 10px;
-                padding: 6px 10px;
+            .grid-item {
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="book" id="book">
-            <h1 id="title">ქართულის კომპლექსური N1</h1>
-            <p id="content">ცხრა შეკითხვა სიყვარულზე</p>
-        </div>
-        <div class="controls">
-            <button id="prevBtn" disabled>წინა გვერდი</button>
-            <button id="nextBtn">შემდეგი გვერდი</button>
-        </div>
-    </div>
 
-    <script>
-        const pages = [
-            "ცხრა შეკითხვა სიყვარულზე კითხვები “სტივ ვოზნიაკისგან“ ",
-            "მე: გამარჯობათ ბატონო სტივ სულ რამოდენიმე კითხვა მექნება, მინდა გაგაფრთხილოთ რომ არცერთი კითხვა არ იქნება პროგრამირებაზე ყველა კითხვა იქნება სიყვარულზე.",
-            "სტივი: ძალიან არ მიყვარს პროგრამირების გარდა სხვა თემაზე ლაპარაკი მაგრამ დღეს ავიტან.",
-            "მე: კარგით ბატონო სტივ მინდა დავიწყო კითხვით “გჯერათ თუ არა სიყვარულის“.",
-            "სტივი: იცით ამ კითხვაზე ძალიან ბევრი მიფიქრია მაგრამ კონკრეტულ შედეგამდე არ მივსულვარ.",
-            "მე: კარგით მაშინ დავსვამ კითხვას შემდეგნაირად გყოლიათ თუ არა შეყვარებული .",
-            "სტივი: კი ბავშვობაში მყავდა შეყვარებული.",
-            "მე: და რა ერქვა?.",
-            "სტივი: მას ერქვე elisa.",
-            "მე: და ლამაზი იყო?.",
-            "სტივი: იცით მე ადამიანში სხვა თვისებას ვაფასებ.",
-            "მე: თუ შეიძლება უფრო კონკრეტულად.",
-            "მე: დიახ მე ადამიანში ვაფასებ კონკრეტულად ურთიერთ გაგებას .",
-            " მადლობთ ყურადღებისთვის."
-        ];
+<h1>კომპლექსური დავალება N1</h1>
 
-        let currentPage = 0;
-        const title = document.getElementById('title');
-        const content = document.getElementById('content');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
+<div class="grid-container">
+    <div class="grid-item" onclick="window.location.href='giorgi.html'">გიორგი</div>
+    <div class="grid-item" onclick="window.location.href='davit.html'">დავით</div>
+    <div class="grid-item" onclick="window.location.href='nika.html'">ნიკა</div>
+</div>
 
-        function updateBook() {
-            content.textContent = pages[currentPage];
-            prevBtn.disabled = currentPage === 0;
-            nextBtn.disabled = currentPage === pages.length - 1;
-        }
-
-        prevBtn.addEventListener('click', () => {
-            if (currentPage > 0) {
-                currentPage--;
-                updateBook();
-            }
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentPage < pages.length - 1) {
-                currentPage++;
-                updateBook();
-            }
-        });
-
-        updateBook();
-    </script>
 </body>
 </html>
